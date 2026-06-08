@@ -1,0 +1,25 @@
+{
+  "_instructions": "Before a real run, copy current official input/output prices per 1M tokens into the selected aliases. Keep null when unknown; the runner will mark cost as unavailable rather than inventing a price.",
+  "_official_pages": {
+    "openai": "https://platform.openai.com/docs/pricing/",
+    "claude": "https://platform.claude.com/docs/en/docs/about-claude/models/all-models",
+    "deepseek": "https://api-docs.deepseek.com/quick_start/pricing",
+    "qwen": "https://help.aliyun.com/zh/model-studio/model"
+  },
+  "deepseek": {
+    "input_usd_per_million": null,
+    "output_usd_per_million": null
+  },
+  "qwen": {
+    "input_usd_per_million": null,
+    "output_usd_per_million": null
+  },
+  "claude": {
+    "input_usd_per_million": null,
+    "output_usd_per_million": null
+  },
+  "openai": {
+    "input_usd_per_million": null,
+    "output_usd_per_million": null
+  }
+}
