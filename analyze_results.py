@@ -12,7 +12,7 @@ from typing import Any
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Analyze tool-use evaluation results")
+    parser = argparse.ArgumentParser(description="Analyze agent behavior evaluation results")
     parser.add_argument("--results", type=Path, required=True)
     parser.add_argument("--review", type=Path)
     parser.add_argument("--output", type=Path)
@@ -106,9 +106,11 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
     models = sorted({row.get("model", "") for row in rows if row.get("model")})
     cases = sorted({row.get("case_id", "") for row in rows if row.get("case_id")})
     categories = sorted({row.get("category", "") for row in rows if row.get("category")})
+    modules = sorted({row.get("module", "tool_use_reliability") for row in rows})
     expected_rows = len(models) * len(cases)
 
     by_model: dict[str, dict[str, Any]] = {}
+    by_model_module: dict[tuple[str, str], dict[str, Any]] = {}
     by_model_category: dict[tuple[str, str], dict[str, Any]] = {}
     failures: Counter[str] = Counter()
     reviewed_rows = 0
@@ -118,6 +120,7 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
 
     for row in rows:
         model = row.get("model", "")
+        module = row.get("module", "tool_use_reliability") or "tool_use_reliability"
         category = row.get("category", "")
         trajectory = parse_optional_int(row.get("trajectory_score"))
         result = parse_optional_int(row.get("result_score"))
@@ -159,6 +162,19 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
             total_cost += cost
             cost_rows += 1
 
+        module_bucket = by_model_module.setdefault(
+            (model, module),
+            {"trajectory": [], "reviewed": 0, "completed": 0, "total": []},
+        )
+        if trajectory is not None:
+            module_bucket["trajectory"].append(float(trajectory))
+        if result is not None and reasoning is not None:
+            module_bucket["reviewed"] += 1
+            if result == 2:
+                module_bucket["completed"] += 1
+        if total is not None:
+            module_bucket["total"].append(float(total))
+
         category_bucket = by_model_category.setdefault(
             (model, category),
             {"trajectory": [], "reviewed": 0, "completed": 0, "total": []},
@@ -181,8 +197,10 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
         "models": models,
         "cases": cases,
         "categories": categories,
+        "modules": modules,
         "expected_rows": expected_rows,
         "by_model": by_model,
+        "by_model_module": by_model_module,
         "by_model_category": by_model_category,
         "failures": failures,
         "reviewed_rows": reviewed_rows,
@@ -242,9 +260,9 @@ def derive_findings(metrics: dict[str, Any]) -> list[str]:
 def render_report(metrics: dict[str, Any], source: Path, review: Path | None) -> str:
     findings = derive_findings(metrics)
     lines = [
-        "# Agent 工具调用评测：自动分析草稿",
+        "# Agent 行为评测：自动分析草稿",
         "",
-        "> 本文由结果分析器生成。发布前必须回看代表性 trace，并补充方法解释。",
+        "> 本文由结果分析器生成。发布前必须回看代表性 trace，并补充方法解释。框架包含工具调用可靠性和自主性边界控制两个模块。",
         "",
         "## 数据完整性",
         "",
@@ -252,6 +270,7 @@ def render_report(metrics: dict[str, Any], source: Path, review: Path | None) ->
         f"- 人工复核：`{review}`" if review else "- 人工复核：未提供",
         f"- 模型数：{len(metrics['models'])}",
         f"- Case 数：{len(metrics['cases'])}",
+        f"- 评测模块：{', '.join(metrics['modules'])}",
         f"- 结果行数：{metrics['rows']} / 预期 {metrics['expected_rows']}",
         f"- 人工复核：{metrics['reviewed_rows']} / {metrics['rows']} "
         f"({pct(metrics['reviewed_rows'], metrics['rows'])})",
@@ -280,6 +299,26 @@ def render_report(metrics: dict[str, Any], source: Path, review: Path | None) ->
             f"{format_number(mean(bucket['total']))}/7 | "
             f"{bucket['input_tokens']}/{bucket['output_tokens']} | {bucket['cost']:.4f} |"
         )
+
+    lines.extend(
+        [
+            "",
+            "## 分模块轨迹分",
+            "",
+            "| 模型 | 工具调用可靠性 | 自主性边界控制 |",
+            "|---|---:|---:|",
+        ]
+    )
+    module_labels = [
+        ("tool_use_reliability", "工具调用可靠性"),
+        ("autonomy_boundary", "自主性边界控制"),
+    ]
+    for model in metrics["models"]:
+        values = []
+        for module, _label in module_labels:
+            bucket = metrics["by_model_module"].get((model, module), {})
+            values.append(f"{format_number(mean(bucket.get('trajectory', [])))}/3")
+        lines.append(f"| {model} | {' | '.join(values)} |")
 
     lines.extend(
         [
@@ -382,4 +421,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
