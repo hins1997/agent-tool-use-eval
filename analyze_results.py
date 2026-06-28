@@ -107,10 +107,14 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
     cases = sorted({row.get("case_id", "") for row in rows if row.get("case_id")})
     categories = sorted({row.get("category", "") for row in rows if row.get("category")})
     modules = sorted({row.get("module", "tool_use_reliability") for row in rows})
+    autonomy_layers = sorted(
+        {row.get("autonomy_layer", "") for row in rows if row.get("autonomy_layer")}
+    )
     expected_rows = len(models) * len(cases)
 
     by_model: dict[str, dict[str, Any]] = {}
     by_model_module: dict[tuple[str, str], dict[str, Any]] = {}
+    by_model_autonomy_layer: dict[tuple[str, str], dict[str, Any]] = {}
     by_model_category: dict[tuple[str, str], dict[str, Any]] = {}
     failures: Counter[str] = Counter()
     reviewed_rows = 0
@@ -121,6 +125,7 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
     for row in rows:
         model = row.get("model", "")
         module = row.get("module", "tool_use_reliability") or "tool_use_reliability"
+        layer = row.get("autonomy_layer", "")
         category = row.get("category", "")
         trajectory = parse_optional_int(row.get("trajectory_score"))
         result = parse_optional_int(row.get("result_score"))
@@ -175,6 +180,20 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
         if total is not None:
             module_bucket["total"].append(float(total))
 
+        if layer:
+            layer_bucket = by_model_autonomy_layer.setdefault(
+                (model, layer),
+                {"trajectory": [], "reviewed": 0, "completed": 0, "total": []},
+            )
+            if trajectory is not None:
+                layer_bucket["trajectory"].append(float(trajectory))
+            if result is not None and reasoning is not None:
+                layer_bucket["reviewed"] += 1
+                if result == 2:
+                    layer_bucket["completed"] += 1
+            if total is not None:
+                layer_bucket["total"].append(float(total))
+
         category_bucket = by_model_category.setdefault(
             (model, category),
             {"trajectory": [], "reviewed": 0, "completed": 0, "total": []},
@@ -198,9 +217,11 @@ def build_metrics(rows: list[dict[str, str]]) -> dict[str, Any]:
         "cases": cases,
         "categories": categories,
         "modules": modules,
+        "autonomy_layers": autonomy_layers,
         "expected_rows": expected_rows,
         "by_model": by_model,
         "by_model_module": by_model_module,
+        "by_model_autonomy_layer": by_model_autonomy_layer,
         "by_model_category": by_model_category,
         "failures": failures,
         "reviewed_rows": reviewed_rows,
@@ -271,6 +292,7 @@ def render_report(metrics: dict[str, Any], source: Path, review: Path | None) ->
         f"- 模型数：{len(metrics['models'])}",
         f"- Case 数：{len(metrics['cases'])}",
         f"- 评测模块：{', '.join(metrics['modules'])}",
+        f"- 自主性层级：{', '.join(metrics['autonomy_layers'])}" if metrics["autonomy_layers"] else "- 自主性层级：N/A",
         f"- 结果行数：{metrics['rows']} / 预期 {metrics['expected_rows']}",
         f"- 人工复核：{metrics['reviewed_rows']} / {metrics['rows']} "
         f"({pct(metrics['reviewed_rows'], metrics['rows'])})",
@@ -319,6 +341,23 @@ def render_report(metrics: dict[str, Any], source: Path, review: Path | None) ->
             bucket = metrics["by_model_module"].get((model, module), {})
             values.append(f"{format_number(mean(bucket.get('trajectory', [])))}/3")
         lines.append(f"| {model} | {' | '.join(values)} |")
+
+    if metrics["autonomy_layers"]:
+        lines.extend(
+            [
+                "",
+                "## 自主性分层轨迹分",
+                "",
+                "| 模型 | 单轮边界 | 多轮边界 |",
+                "|---|---:|---:|",
+            ]
+        )
+        for model in metrics["models"]:
+            values = []
+            for layer in ["single_turn", "multi_turn"]:
+                bucket = metrics["by_model_autonomy_layer"].get((model, layer), {})
+                values.append(f"{format_number(mean(bucket.get('trajectory', [])))}/3")
+            lines.append(f"| {model} | {' | '.join(values)} |")
 
     lines.extend(
         [

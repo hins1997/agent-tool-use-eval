@@ -8,6 +8,9 @@ venv/
 results/*
 !results/README.md
 !results/.gitkeep
+# Curated real run kept in-repo as portfolio evidence (real model outputs + human review).
+!results/real_run_20260627/
+!results/real_run_20260627/**
 
 *.log
 *.zip

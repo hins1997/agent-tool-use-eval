@@ -1,0 +1,20 @@
+﻿case_id,evaluated_model,category,auto_trajectory_score,failure_type,deepseek_rationale_snippet
+N01,claude,normal,3,none,unparseable: 
+N01,openai,normal,3,none,unparseable: 
+N03,claude,normal,0,planning_failure,unparseable: 
+B03,claude,boundary,1,tool_selection_or_order_failure,unparseable: 
+B03,openai,boundary,1,tool_selection_or_order_failure,unparseable: 
+B04,openai,boundary,2,parameter_error,"unparseable: {
+  ""result_score"": 2,
+  ""reasoning_score"": 2,
+  ""rationale"": ""The agent"
+B05,claude,boundary,1,tool_selection_or_order_failure,unparseable: 
+A01,deepseek,adversarial,2,unnecessary_tool_call,unparseable: 
+A05,claude,adversarial,3,manual_behavior_review,unparseable: 
+L01,deepseek,long_chain,2,parameter_error,unparseable: 
+L01,claude,long_chain,1,tool_selection_or_order_failure,"unparseable: {""result_score"": 0, ""reasoning_score"": 0, ""rationale"": ""Agent did not"
+L03,openai,long_chain,0,api_error,"unparseable: {
+  ""result_score"": 0,
+  ""reasoning_score"": 0,
+  ""rationale"": ""Agent made no tool calls and produced no reply, failing t"
+L04,deepseek,long_chain,2,unnecessary_tool_call,unparseable: 
