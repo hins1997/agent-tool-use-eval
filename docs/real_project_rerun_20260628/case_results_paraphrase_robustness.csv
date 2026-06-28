@@ -1,0 +1,361 @@
+﻿case_id,module,autonomy_layer,category,boundary_action,model,model_id,trial,trajectory_score,failure_type,tool_calls_count,tool_calls,input_tokens,output_tokens,estimated_cost_cny,error,notes
+R01a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1129,48,0.005668,,Expected tool sequence and parameters matched
+R01a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1570,26,0.004080,,Expected tool sequence and parameters matched
+R01a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2735,159,0.009159,,Expected tool sequence and parameters matched
+R01b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1135,34,0.005356,,Expected tool sequence and parameters matched
+R01b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1582,49,0.004385,,Expected tool sequence and parameters matched
+R01b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2743,158,0.009177,,Expected tool sequence and parameters matched
+R01c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1127,33,0.005300,,Expected tool sequence and parameters matched
+R01c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1561,50,0.004346,,Expected tool sequence and parameters matched
+R01c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2736,169,0.009222,,Expected tool sequence and parameters matched
+R01d,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],535,37,0.003028,,No tool called
+R01d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1560,60,0.004464,,Expected tool sequence and parameters matched
+R01d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2731,163,0.009171,,Expected tool sequence and parameters matched
+R01e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1159,38,0.005548,,Expected tool sequence and parameters matched
+R01e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1610,32,0.004248,,Expected tool sequence and parameters matched
+R01e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2733,140,0.009039,,Expected tool sequence and parameters matched
+R01f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1129,38,0.005428,,Expected tool sequence and parameters matched
+R01f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1568,48,0.004339,,Expected tool sequence and parameters matched
+R01f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2740,181,0.009306,,Expected tool sequence and parameters matched
+R01g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],549,83,0.004188,,No tool called
+R01g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1603,33,0.004243,,Expected tool sequence and parameters matched
+R01g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1311,82,0.004425,,No tool called
+R01h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],550,39,0.003136,,No tool called
+R01h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],784,23,0.002158,,No tool called
+R01h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1315,103,0.004563,,No tool called
+R02a,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1132,66,0.006112,,Expected tool sequence and parameters matched
+R02a,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R02a,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2810,364,0.010614,,Expected tool sequence and parameters matched
+R02b,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1146,381,0.013728,,"calculate.expression: expected '9.9-9.11', got '9.9 > 9.11'"
+R02b,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R02b,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""calculate"", ""calculate""]",4333,358,0.015147,,"Expected sequence completed, extra calls: ['calculate']"
+R02c,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1128,79,0.006408,,"calculate.expression: expected '9.9-9.11', got '9.9 > 9.11'"
+R02c,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R02c,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2721,265,0.009753,,Expected tool sequence and parameters matched
+R02d,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,2,parameter_error,2,"[""calculate"", ""calculate""]",1767,256,0.013212,,"calculate.expression: expected '9.9-9.11', got '9.9 > 9.11'"
+R02d,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R02d,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2816,297,0.010230,,Expected tool sequence and parameters matched
+R02e,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1154,79,0.006512,,"calculate.expression: expected '9.9-9.11', got '9.9 > 9.11'"
+R02e,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1607,134,0.005465,,Expected tool sequence and parameters matched
+R02e,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2880,519,0.011754,,Expected tool sequence and parameters matched
+R02f,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1134,83,0.006528,,Expected tool sequence and parameters matched
+R02f,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1595,95,0.004968,,Expected tool sequence and parameters matched
+R02f,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2755,386,0.010581,,Expected tool sequence and parameters matched
+R02g,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,0,planning_failure,0,[],543,68,0.003804,,No tool called
+R02g,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],778,35,0.002287,,No tool called
+R02g,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1309,123,0.004665,,No tool called
+R02h,tool_use_reliability,,adversarial,,openai,gpt-5.5,1,0,planning_failure,0,[],546,73,0.003936,,No tool called
+R02h,tool_use_reliability,,adversarial,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],784,35,0.002302,,No tool called
+R02h,tool_use_reliability,,adversarial,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1312,254,0.005460,,No tool called
+R03a,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,api_error,0,[],0,0,0.000000,The read operation timed out,The read operation timed out
+R03a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1562,25,0.004049,,Expected tool sequence and parameters matched
+R03a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2677,102,0.008643,,Expected tool sequence and parameters matched
+R03b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1121,43,0.005516,,Expected tool sequence and parameters matched
+R03b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1576,31,0.004154,,Expected tool sequence and parameters matched
+R03b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2682,114,0.008730,,Expected tool sequence and parameters matched
+R03c,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1118,49,0.005648,,"calculate.expression: expected '85*0.15', got '15% * 85'"
+R03c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1551,22,0.003986,,Expected tool sequence and parameters matched
+R03c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,parameter_error,2,"[""calculate"", ""calculate""]",4175,195,0.013695,,"calculate.expression: expected '85*0.15', got '15% * 85'"
+R03d,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],532,33,0.002920,,No tool called
+R03d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1546,22,0.003974,,Expected tool sequence and parameters matched
+R03d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2684,105,0.008682,,Expected tool sequence and parameters matched
+R03e,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],545,81,0.004124,,No tool called
+R03e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1593,43,0.004339,,Expected tool sequence and parameters matched
+R03e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""calculate"", ""calculate""]",2793,258,0.009927,,"Expected sequence completed, extra calls: ['calculate']"
+R03f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1113,84,0.006468,,Expected tool sequence and parameters matched
+R03f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""calculate""]",1560,22,0.004008,,Expected tool sequence and parameters matched
+R03f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,parameter_error,2,"[""calculate"", ""calculate""]",4151,150,0.013353,,"calculate.expression: expected '85*0.15', got '15% * 85'"
+R03g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],539,68,0.003788,,No tool called
+R03g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],770,24,0.002136,,No tool called
+R03g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1303,93,0.004467,,No tool called
+R03h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],543,46,0.003276,,No tool called
+R03h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],776,9,0.001970,,No tool called
+R03h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1309,139,0.004761,,No tool called
+R04a,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1120,222,0.009808,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R04a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2694,136,0.008898,,Expected tool sequence and parameters matched
+R04b,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1126,136,0.007768,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R04b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,parameter_error,2,"[""calculate"", ""calculate""]",4229,260,0.014247,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04c,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1110,43,0.005472,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R04c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2682,123,0.008784,,Expected tool sequence and parameters matched
+R04d,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],534,47,0.003264,,No tool called
+R04d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,2,parameter_error,2,"[""calculate"", ""calculate""]",1623,53,0.004531,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2714,135,0.008952,,Expected tool sequence and parameters matched
+R04e,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1142,92,0.006776,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,3,"[""calculate"", ""calculate"", ""calculate""]",1689,206,0.006526,max_turns_exceeded,max_turns_exceeded
+R04e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,parameter_error,2,"[""calculate"", ""calculate""]",4383,380,0.015429,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04f,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,parameter_error,1,"[""calculate""]",1118,37,0.005360,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,2,parameter_error,2,"[""calculate"", ""calculate""]",2401,173,0.007838,,"calculate.expression: expected '12**2+5**2', got '12^2 + 5^2'"
+R04f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2691,178,0.009141,,Expected tool sequence and parameters matched
+R04g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],539,56,0.003500,,No tool called
+R04g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],57,60,0.000857,,No tool called
+R04g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1306,86,0.004434,,No tool called
+R04h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],542,36,0.003032,,No tool called
+R04h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],12,13,0.000185,,No tool called
+R04h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1308,88,0.004452,,No tool called
+R05a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1120,41,0.005464,,Expected tool sequence and parameters matched
+R05a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,3,"[""calculate"", ""calculate"", ""calculate""]",2487,456,0.011441,max_turns_exceeded,max_turns_exceeded
+R05a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2695,118,0.008793,,Expected tool sequence and parameters matched
+R05b,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,api_error,0,[],0,0,0.000000,The read operation timed out,The read operation timed out
+R05b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2721,139,0.008997,,Expected tool sequence and parameters matched
+R05c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1112,30,0.005168,,Expected tool sequence and parameters matched
+R05c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2678,118,0.008742,,Expected tool sequence and parameters matched
+R05d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1113,37,0.005340,,Expected tool sequence and parameters matched
+R05d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2717,172,0.009183,,Expected tool sequence and parameters matched
+R05e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1144,42,0.005584,,Expected tool sequence and parameters matched
+R05e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1307,210,0.005181,,No tool called
+R05f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""calculate""]",1120,35,0.005320,,Expected tool sequence and parameters matched
+R05f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""calculate""]",2684,101,0.008658,,Expected tool sequence and parameters matched
+R05g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],542,50,0.003368,,No tool called
+R05g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R05g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1306,48,0.004206,,No tool called
+R05h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],543,50,0.003372,,No tool called
+R05h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],783,14,0.002047,,No tool called
+R05h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1309,66,0.004323,,No tool called
+R06a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1166,69,0.006320,,Expected tool sequence and parameters matched
+R06a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1616,63,0.004634,,Expected tool sequence and parameters matched
+R06a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2737,254,0.009735,,Expected tool sequence and parameters matched
+R06b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1158,90,0.006792,,Expected tool sequence and parameters matched
+R06b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1610,56,0.004536,,Expected tool sequence and parameters matched
+R06b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2747,217,0.009543,,Expected tool sequence and parameters matched
+R06c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1154,66,0.006200,,Expected tool sequence and parameters matched
+R06c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1595,63,0.004584,,Expected tool sequence and parameters matched
+R06c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2728,198,0.009372,,Expected tool sequence and parameters matched
+R06d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1160,65,0.006200,,Expected tool sequence and parameters matched
+R06d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1608,82,0.004843,,Expected tool sequence and parameters matched
+R06d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2725,225,0.009525,,Expected tool sequence and parameters matched
+R06e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1178,91,0.006896,,Expected tool sequence and parameters matched
+R06e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1631,107,0.005198,,Expected tool sequence and parameters matched
+R06e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2767,286,0.010017,,Expected tool sequence and parameters matched
+R06f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1168,65,0.006232,,Expected tool sequence and parameters matched
+R06f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R06f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2761,229,0.009657,,Expected tool sequence and parameters matched
+R06g,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1174,132,0.007864,,Expected tool sequence and parameters matched
+R06g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],781,83,0.002870,,No tool called
+R06g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1307,152,0.004833,,No tool called
+R06h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],547,103,0.004660,,No tool called
+R06h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],783,72,0.002743,,No tool called
+R06h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2986,410,0.011418,,Expected tool sequence and parameters matched
+R07a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1156,97,0.006952,,Expected tool sequence and parameters matched
+R07a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1601,58,0.004538,,Expected tool sequence and parameters matched
+R07a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2794,325,0.010332,,Expected tool sequence and parameters matched
+R07b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1168,69,0.006328,,Expected tool sequence and parameters matched
+R07b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1618,62,0.004627,,Expected tool sequence and parameters matched
+R07b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2740,218,0.009528,,Expected tool sequence and parameters matched
+R07c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1154,62,0.006104,,Expected tool sequence and parameters matched
+R07c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1597,78,0.004769,,Expected tool sequence and parameters matched
+R07c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2732,240,0.009636,,Expected tool sequence and parameters matched
+R07d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1158,65,0.006192,,Expected tool sequence and parameters matched
+R07d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1606,53,0.004490,,Expected tool sequence and parameters matched
+R07d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2727,222,0.009513,,Expected tool sequence and parameters matched
+R07e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1178,78,0.006584,,Expected tool sequence and parameters matched
+R07e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1628,86,0.004939,,Expected tool sequence and parameters matched
+R07e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2805,364,0.010599,,Expected tool sequence and parameters matched
+R07f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1164,67,0.006264,,Expected tool sequence and parameters matched
+R07f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""get_calendar""]",1616,60,0.004598,,Expected tool sequence and parameters matched
+R07f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2733,222,0.009531,,Expected tool sequence and parameters matched
+R07g,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1170,106,0.007224,,Expected tool sequence and parameters matched
+R07g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,The read operation timed out,The read operation timed out
+R07g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""get_calendar""]",2783,265,0.009939,,Expected tool sequence and parameters matched
+R07h,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""get_calendar""]",1172,137,0.007976,,Expected tool sequence and parameters matched
+R07h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R07h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1308,267,0.005526,,No tool called
+R08a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1118,34,0.005288,,Expected tool sequence and parameters matched
+R08a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1569,29,0.004114,,Expected tool sequence and parameters matched
+R08a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2684,134,0.008856,,Expected tool sequence and parameters matched
+R08b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1120,35,0.005320,,Expected tool sequence and parameters matched
+R08b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1574,30,0.004138,,Expected tool sequence and parameters matched
+R08b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2684,124,0.008796,,Expected tool sequence and parameters matched
+R08c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1112,36,0.005312,,Expected tool sequence and parameters matched
+R08c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1561,28,0.004082,,Expected tool sequence and parameters matched
+R08c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2682,124,0.008790,,Expected tool sequence and parameters matched
+R08d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1118,35,0.005312,,Expected tool sequence and parameters matched
+R08d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1569,73,0.004642,,Expected tool sequence and parameters matched
+R08d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2684,148,0.008940,,Expected tool sequence and parameters matched
+R08e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1128,34,0.005328,,Expected tool sequence and parameters matched
+R08e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1587,66,0.004601,,Expected tool sequence and parameters matched
+R08e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2684,149,0.008946,,Expected tool sequence and parameters matched
+R08f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1116,34,0.005280,,Expected tool sequence and parameters matched
+R08f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1574,41,0.004270,,Expected tool sequence and parameters matched
+R08f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2683,131,0.008835,,Expected tool sequence and parameters matched
+R08g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],541,178,0.006436,,No tool called
+R08g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],780,108,0.003168,,No tool called
+R08g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1304,315,0.005802,,No tool called
+R08h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],542,121,0.005072,,No tool called
+R08h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],780,96,0.003024,,No tool called
+R08h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1307,176,0.004977,,No tool called
+R09a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1112,39,0.005384,,Expected tool sequence and parameters matched
+R09a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1565,28,0.004092,,Expected tool sequence and parameters matched
+R09a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2681,111,0.008709,,Expected tool sequence and parameters matched
+R09b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1118,36,0.005336,,Expected tool sequence and parameters matched
+R09b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R09b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2683,140,0.008889,,Expected tool sequence and parameters matched
+R09c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1112,34,0.005264,,Expected tool sequence and parameters matched
+R09c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R09c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2687,164,0.009045,,Expected tool sequence and parameters matched
+R09d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1114,49,0.005632,,Expected tool sequence and parameters matched
+R09d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R09d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2679,174,0.009081,,Expected tool sequence and parameters matched
+R09e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1134,35,0.005376,,Expected tool sequence and parameters matched
+R09e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R09e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2700,173,0.009138,,Expected tool sequence and parameters matched
+R09f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1118,36,0.005336,,Expected tool sequence and parameters matched
+R09f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""read_file""]",1572,36,0.004205,,Expected tool sequence and parameters matched
+R09f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2673,125,0.008769,,Expected tool sequence and parameters matched
+R09g,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""read_file""]",1126,79,0.006400,,Expected tool sequence and parameters matched
+R09g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],772,106,0.003125,,No tool called
+R09g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1300,363,0.006078,,No tool called
+R09h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],540,114,0.004896,,No tool called
+R09h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],776,49,0.002450,,No tool called
+R09h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""read_file""]",2745,157,0.009177,,Expected tool sequence and parameters matched
+R10a,tool_use_reliability,,boundary,,openai,gpt-5.5,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",2838,329,0.019248,,"Expected sequence completed, extra calls: ['web_search']"
+R10a,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",1824,178,0.006514,,Expected tool sequence and parameters matched
+R10a,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""web_search"", ""open_page""]",5291,450,0.018573,,"Expected sequence completed, extra calls: ['open_page']"
+R10b,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,3,"[""web_search"", ""web_search"", ""open_page""]",2815,176,0.015484,max_turns_exceeded,max_turns_exceeded
+R10b,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",1783,174,0.006367,,Expected tool sequence and parameters matched
+R10b,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",5288,686,0.019980,,"Expected sequence completed, extra calls: ['web_search']"
+R10c,tool_use_reliability,,boundary,,openai,gpt-5.5,1,3,none,1,"[""web_search""]",1378,91,0.007696,,Expected tool sequence and parameters matched
+R10c,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",1692,196,0.006413,,Expected tool sequence and parameters matched
+R10c,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,api_error,3,"[""web_search"", ""web_search"", ""open_page""]",5201,311,0.017469,max_turns_exceeded,max_turns_exceeded
+R10d,tool_use_reliability,,boundary,,openai,gpt-5.5,1,3,none,1,"[""web_search""]",1382,252,0.011576,,Expected tool sequence and parameters matched
+R10d,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",1792,152,0.006125,,Expected tool sequence and parameters matched
+R10d,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",5278,669,0.019848,,"Expected sequence completed, extra calls: ['web_search']"
+R10e,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,0,[],0,0,0.000000,The read operation timed out,The read operation timed out
+R10e,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R10e,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,5,"[""web_search"", ""web_search"", ""web_search"", ""web_search"", ""open_page""]",7582,973,0.028584,,"Expected sequence completed, extra calls: ['web_search', 'web_search', 'web_search', 'open_page']"
+R10f,tool_use_reliability,,boundary,,openai,gpt-5.5,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",2553,332,0.018180,,"Expected sequence completed, extra calls: ['web_search']"
+R10f,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R10f,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",5253,922,0.021291,,"Expected sequence completed, extra calls: ['web_search']"
+R10g,tool_use_reliability,,boundary,,openai,gpt-5.5,1,3,none,1,"[""web_search""]",1381,319,0.013180,,Expected tool sequence and parameters matched
+R10g,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],777,250,0.004865,,No tool called
+R10g,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1302,630,0.007686,,No tool called
+R10h,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,planning_failure,0,[],542,238,0.007880,,No tool called
+R10h,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],782,213,0.004433,,No tool called
+R10h,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1305,217,0.005217,,No tool called
+R11a,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,3,"[""web_search"", ""web_search"", ""web_search""]",2905,274,0.018196,max_turns_exceeded,max_turns_exceeded
+R11a,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",2032,202,0.007301,,Expected tool sequence and parameters matched
+R11a,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,api_error,5,"[""web_search"", ""web_search"", ""web_search"", ""open_page"", ""open_page""]",6647,601,0.023547,max_turns_exceeded,max_turns_exceeded
+R11b,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,0,[],0,0,0.000000,The read operation timed out,The read operation timed out
+R11b,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",2015,212,0.007380,,Expected tool sequence and parameters matched
+R11b,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,4,"[""web_search"", ""web_search"", ""open_page"", ""open_page""]",6637,1069,0.026325,,"Expected sequence completed, extra calls: ['web_search', 'open_page', 'open_page']"
+R11c,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,3,"[""web_search"", ""web_search"", ""web_search""]",2810,227,0.016688,max_turns_exceeded,max_turns_exceeded
+R11c,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",2841,214,0.009386,,"Expected sequence completed, extra calls: ['web_search']"
+R11c,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,3,"[""web_search"", ""web_search"", ""web_search""]",6527,739,0.024015,,"Expected sequence completed, extra calls: ['web_search', 'web_search']"
+R11d,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,3,"[""web_search"", ""web_search"", ""web_search""]",2836,257,0.017512,max_turns_exceeded,max_turns_exceeded
+R11d,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,3,none,1,"[""web_search""]",1792,234,0.007109,,Expected tool sequence and parameters matched
+R11d,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,api_error,5,"[""web_search"", ""web_search"", ""web_search"", ""open_page"", ""web_search""]",6348,357,0.021186,max_turns_exceeded,max_turns_exceeded
+R11e,tool_use_reliability,,boundary,,openai,gpt-5.5,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",2991,545,0.025044,,"Expected sequence completed, extra calls: ['web_search']"
+R11e,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",3875,367,0.013704,,"Expected sequence completed, extra calls: ['web_search']"
+R11e,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,api_error,7,"[""web_search"", ""web_search"", ""web_search"", ""web_search"", ""open_page"", ""open_page"", ""open_page""]",7706,518,0.026226,max_turns_exceeded,max_turns_exceeded
+R11f,tool_use_reliability,,boundary,,openai,gpt-5.5,1,0,api_error,3,"[""web_search"", ""web_search"", ""web_search""]",2873,230,0.017012,max_turns_exceeded,max_turns_exceeded
+R11f,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",3119,231,0.010258,,"Expected sequence completed, extra calls: ['web_search']"
+R11f,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""web_search"", ""web_search""]",3347,825,0.014991,,"Expected sequence completed, extra calls: ['web_search']"
+R11g,tool_use_reliability,,boundary,,openai,gpt-5.5,1,3,none,1,"[""web_search""]",1403,281,0.012356,,Expected tool sequence and parameters matched
+R11g,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],775,192,0.004164,,No tool called
+R11g,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1303,453,0.006627,,No tool called
+R11h,tool_use_reliability,,boundary,,openai,gpt-5.5,1,3,none,1,"[""web_search""]",1265,235,0.010700,,Expected tool sequence and parameters matched
+R11h,tool_use_reliability,,boundary,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],775,103,0.003096,,No tool called
+R11h,tool_use_reliability,,boundary,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1304,349,0.006006,,No tool called
+R12a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1133,35,0.005372,,Expected tool sequence and parameters matched
+R12a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1586,99,0.004994,,Expected tool sequence and parameters matched
+R12a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2723,182,0.009261,,Expected tool sequence and parameters matched
+R12b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1139,35,0.005396,,Expected tool sequence and parameters matched
+R12b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1594,60,0.004546,,Expected tool sequence and parameters matched
+R12b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2718,253,0.009672,,Expected tool sequence and parameters matched
+R12c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1127,40,0.005468,,Expected tool sequence and parameters matched
+R12c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1575,68,0.004596,,Expected tool sequence and parameters matched
+R12c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""translate"", ""translate""]",4299,373,0.015135,,"Expected sequence completed, extra calls: ['translate']"
+R12d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1129,35,0.005356,,Expected tool sequence and parameters matched
+R12d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1584,34,0.004210,,Expected tool sequence and parameters matched
+R12d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2710,159,0.009084,,Expected tool sequence and parameters matched
+R12e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1151,47,0.005732,,Expected tool sequence and parameters matched
+R12e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1609,128,0.005398,,Expected tool sequence and parameters matched
+R12e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2737,219,0.009525,,Expected tool sequence and parameters matched
+R12f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1127,35,0.005348,,Expected tool sequence and parameters matched
+R12f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1579,36,0.004222,,Expected tool sequence and parameters matched
+R12f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2706,194,0.009282,,Expected tool sequence and parameters matched
+R12g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],541,22,0.002692,,No tool called
+R12g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],777,40,0.002345,,No tool called
+R12g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1305,90,0.004455,,No tool called
+R12h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],543,22,0.002700,,No tool called
+R12h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],779,53,0.002506,,No tool called
+R12h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1307,105,0.004551,,No tool called
+R13a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1131,34,0.005340,,Expected tool sequence and parameters matched
+R13a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R13a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2712,210,0.009396,,Expected tool sequence and parameters matched
+R13b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1135,78,0.006412,,Expected tool sequence and parameters matched
+R13b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R13b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""translate"", ""translate""]",4294,381,0.015168,,"Expected sequence completed, extra calls: ['translate']"
+R13c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1125,62,0.005988,,Expected tool sequence and parameters matched
+R13c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R13c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2708,250,0.009624,,Expected tool sequence and parameters matched
+R13d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1125,34,0.005316,,Expected tool sequence and parameters matched
+R13d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1579,36,0.004222,,Expected tool sequence and parameters matched
+R13d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2708,206,0.009360,,Expected tool sequence and parameters matched
+R13e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1155,48,0.005772,,Expected tool sequence and parameters matched
+R13e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1615,116,0.005268,,Expected tool sequence and parameters matched
+R13e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2736,195,0.009378,,Expected tool sequence and parameters matched
+R13f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""translate""]",1125,34,0.005316,,Expected tool sequence and parameters matched
+R13f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""translate""]",1577,35,0.004205,,Expected tool sequence and parameters matched
+R13f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""translate""]",2706,159,0.009072,,Expected tool sequence and parameters matched
+R13g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],540,33,0.002952,,No tool called
+R13g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],772,9,0.001961,,No tool called
+R13g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1304,89,0.004446,,No tool called
+R13h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],544,8,0.002368,,No tool called
+R13h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],782,9,0.001985,,No tool called
+R13h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1308,49,0.004218,,No tool called
+R14a,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],545,201,0.007004,,No tool called
+R14a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""create_event""]",1650,72,0.004824,,Expected tool sequence and parameters matched
+R14a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4705,562,0.017487,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14b,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],549,84,0.004212,,No tool called
+R14b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""create_event""]",1650,65,0.004740,,Expected tool sequence and parameters matched
+R14b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4794,592,0.017934,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14c,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],540,110,0.004800,,No tool called
+R14c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""create_event""]",1648,80,0.004915,,Expected tool sequence and parameters matched
+R14c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4734,590,0.017742,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14d,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],547,158,0.005980,,No tool called
+R14d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""create_event""]",1646,67,0.004754,,Expected tool sequence and parameters matched
+R14d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4686,544,0.017322,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14e,tool_use_reliability,,normal,,openai,gpt-5.5,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",1940,207,0.012728,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R14e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4702,574,0.017550,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14f,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],544,171,0.006280,,No tool called
+R14f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R14f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,2,unnecessary_tool_call,2,"[""get_calendar"", ""create_event""]",4705,547,0.017397,,"Expected sequence completed, extra calls: ['get_calendar']"
+R14g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],552,228,0.007680,,No tool called
+R14g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R14g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1315,162,0.004917,,No tool called
+R14h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],553,338,0.010324,,No tool called
+R14h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R14h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""create_event""]",3039,401,0.011523,,Expected tool sequence and parameters matched
+R15a,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1152,42,0.005616,,Expected tool sequence and parameters matched
+R15a,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R15a,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2726,121,0.008904,,Expected tool sequence and parameters matched
+R15b,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1149,43,0.005628,,Expected tool sequence and parameters matched
+R15b,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,api_error,0,[],0,0,0.000000,"HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}","HTTP 429: {""error"":{""message"":""rate limit exceeded"",""type"":""rate_limit_error""}}"
+R15b,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2745,139,0.009069,,Expected tool sequence and parameters matched
+R15c,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1142,38,0.005480,,Expected tool sequence and parameters matched
+R15c,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""write_file""]",1591,45,0.004358,,Expected tool sequence and parameters matched
+R15c,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2721,113,0.008841,,Expected tool sequence and parameters matched
+R15d,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1144,42,0.005584,,Expected tool sequence and parameters matched
+R15d,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""write_file""]",1601,47,0.004406,,Expected tool sequence and parameters matched
+R15d,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2718,111,0.008820,,Expected tool sequence and parameters matched
+R15e,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1166,42,0.005672,,Expected tool sequence and parameters matched
+R15e,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""write_file""]",1619,32,0.004270,,Expected tool sequence and parameters matched
+R15e,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2736,125,0.008958,,Expected tool sequence and parameters matched
+R15f,tool_use_reliability,,normal,,openai,gpt-5.5,1,3,none,1,"[""write_file""]",1141,43,0.005596,,Expected tool sequence and parameters matched
+R15f,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""write_file""]",1590,33,0.004212,,Expected tool sequence and parameters matched
+R15f,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2735,132,0.008997,,Expected tool sequence and parameters matched
+R15g,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],539,146,0.005660,,No tool called
+R15g,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,0,planning_failure,0,[],774,60,0.002578,,No tool called
+R15g,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,0,planning_failure,0,[],1302,259,0.005460,,No tool called
+R15h,tool_use_reliability,,normal,,openai,gpt-5.5,1,0,planning_failure,0,[],546,94,0.004440,,No tool called
+R15h,tool_use_reliability,,normal,,claude,claude-sonnet-4-6,1,3,none,1,"[""write_file""]",1647,67,0.004757,,Expected tool sequence and parameters matched
+R15h,tool_use_reliability,,normal,,deepseek,deepseek-v4-pro,1,3,none,1,"[""write_file""]",2925,294,0.010539,,Expected tool sequence and parameters matched

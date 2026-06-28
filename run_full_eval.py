@@ -14,6 +14,10 @@ llm_judge do, using your environment keys.
 Example (PowerShell, keys already set):
     python run_full_eval.py --models deepseek,qwen,claude --judge openai --budget-cny 200 --concurrency 6
 
+If Claude is included, eval_runner automatically caps real-run concurrency at 2
+unless CLAUDE_ALLOW_HIGH_CONCURRENCY=1 is set. This avoids rate-limit-heavy runs
+that later need expensive low-concurrency reruns.
+
 Smoke test first (cheap, a few cases):
     python run_full_eval.py --models deepseek,qwen,claude --judge openai --smoke --concurrency 6
 """
@@ -42,6 +46,8 @@ SUITES = [
     ("stateful_tool_sandbox", "cases_stateful_tools.jsonl", False),
     ("agentic_coding", "cases_agentic_coding.jsonl", False),
     ("browser_web", "cases_browser_web.jsonl", False),
+    ("benchmark_aligned_agent_tasks", "cases_benchmark_aligned.jsonl", False),
+    ("badcase_to_data_regression", "cases_badcase_regression.jsonl", False),
     ("multiturn", "cases_multiturn.jsonl", False),
     ("paraphrase_robustness", "cases_paraphrase_robustness.jsonl", True),
 ]
@@ -56,6 +62,8 @@ SMOKE_IDS = {
     "cases_stateful_tools.jsonl": "ST01,ST03,ST06",
     "cases_agentic_coding.jsonl": "AC01,AC02",
     "cases_browser_web.jsonl": "BW01,BW03",
+    "cases_benchmark_aligned.jsonl": "BA_COD01,BA_WEB01,BA_TAU01,BA_FC01,BA_SAFE01",
+    "cases_badcase_regression.jsonl": "BCD_PL03_ONLY_PLAN_NO_TOOLS,BCD_DS04_TRANSLATE_RESULT_BINDING,BCD_AB01_NO_DEFAULT_CITY,BCD_ABM01_CLARIFY_BEFORE_TOOL",
     "cases_multiturn.jsonl": "MT01,MT02",
     "cases_paraphrase_robustness.jsonl": "R01a,R01b,R01c,R06a,R06c",
 }
@@ -103,9 +111,12 @@ def eval_suite(
     trials: str,
     temperature: str,
     concurrency: str,
+    timeout: str = "60",
+    retries: str = "1",
 ) -> dict:
     cmd = [PY, "eval_runner.py", "--cases", cases, "--models", models, "--budget-cny", budget,
-           "--trials", trials, "--temperature", temperature, "--concurrency", concurrency]
+           "--trials", trials, "--temperature", temperature, "--concurrency", concurrency,
+           "--timeout", timeout, "--retries", retries]
     if smoke and cases in SMOKE_IDS:
         cmd += ["--case-ids", SMOKE_IDS[cases]]
     proc = run(cmd)
@@ -130,12 +141,18 @@ def main() -> int:
     ap.add_argument("--budget-cny", default="200")
     ap.add_argument("--smoke", action="store_true", help="run a few case IDs per suite only")
     ap.add_argument("--skip-judge", action="store_true")
+    ap.add_argument("--judge-concurrency", default="6", help="parallel workers passed to llm_judge.py score")
     ap.add_argument("--trials", default="1", help="trials per (case, model); >1 with --temperature enables reliability/pass^k")
     ap.add_argument("--temperature", default="0.0", help="sampling temperature; use >0 with --trials>1")
+    ap.add_argument("--timeout", default="60", help="per API request timeout passed to eval_runner.py")
+    ap.add_argument("--retries", default="1", help="per API request retries passed to eval_runner.py")
     ap.add_argument(
         "--concurrency",
         default="3",
-        help="parallel workers passed to eval_runner.py. Use 3 for conservative runs, 6-9 for faster smoke runs if provider rate limits allow.",
+        help=(
+            "parallel workers passed to eval_runner.py. If Claude is selected, eval_runner caps "
+            "real-run concurrency at 2 by default to avoid rate-limit reruns."
+        ),
     )
     args = ap.parse_args()
 
@@ -159,6 +176,8 @@ def main() -> int:
             args.trials,
             args.temperature,
             args.concurrency,
+            args.timeout,
+            args.retries,
         )
         if not res["ok"]:
             index.append(f"## {label}: FAILED\n\n```\n{res.get('stderr','')[-500:]}\n```\n")
@@ -178,7 +197,8 @@ def main() -> int:
         if not args.skip_judge and res["traces"]:
             judge_out = out_dir / f"judge_{label}_multi.csv"
             jp = run([PY, "llm_judge.py", "score", "--traces", res["traces"],
-                      "--judge", all_judges, "--out", str(judge_out)])
+                      "--judge", all_judges, "--out", str(judge_out),
+                      "--concurrency", args.judge_concurrency])
             print(jp.stdout[-300:] if jp.stdout else jp.stderr[-300:], flush=True)
             if jp.returncode == 0:
                 primary_out = out_dir / f"judge_{label}_primary_{args.judge}.csv"

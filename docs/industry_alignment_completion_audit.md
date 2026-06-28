@@ -30,7 +30,7 @@ This is not a claim that every suite already has full real-model leaderboard evi
 | Statistical rigor | `stats.py`; `causal_eval.py`; `reliability.py`; `perturbation_causal.py`; `power_analysis.py` | Complete |
 | Model-card style reporting | `benchmark_manifest.json`; `scorecard.py`; generated scorecards under `results/` | Complete |
 | One-command orchestration | `run_full_eval.py` | Complete |
-| CI smoke gate | `.github/workflows/eval-smoke.yml` | Initial validation/test gate complete |
+| Smoke/regression gate | `test_eval_runner.py`, validate / dry-run commands | Initial validation/test gate complete; repository workflow automation is optional |
 | Run-to-run regression reporting | `run_delta.py` | Initial delta report complete |
 | Release gate | `release_gate.py`; `benchmark_manifest.json` release gates | Initial PASS/WARN/FAIL gate complete |
 

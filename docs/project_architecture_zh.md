@@ -45,6 +45,7 @@ flowchart TD
     C --> C1["调用模型<br/>OpenAI / Claude / DeepSeek / Qwen"]
     C --> C2["调用 mock tools<br/>search / email / file / calendar / browser / tests"]
     C --> C3["记录 trace<br/>tool_calls / params / results / final_response"]
+    C --> C4["共享框架包<br/>agent_eval"]
 
     D --> D1["规则打分<br/>trajectory_score 0-3"]
     D --> D2["最终状态校验<br/>final_state"]
@@ -63,7 +64,7 @@ flowchart TD
     F --> F4["release_gate.py<br/>质量门禁"]
 
     G --> G1["test_eval_runner.py<br/>92 个回归测试"]
-    G --> G2["GitHub Actions CI"]
+    G --> G2["本地 smoke / regression tests"]
     G --> G3["coding_sandbox.py"]
     G --> G4["browser_sandbox.py"]
 ```
@@ -105,9 +106,11 @@ flowchart LR
 | 部分 | 解决的问题 | 代表文件 |
 |---|---|---|
 | Case Suites | 出题：定义要测哪些 Agent 能力和风险 | `cases_*.jsonl` |
+| Case Registry | 管理 case 加载、校验、模块筛选 | `agent_eval/cases.py` |
 | Runner | 考试执行：调用模型、工具、记录过程 | `eval_runner.py` |
 | Trace | 证据链：保留 Agent 实际做了什么 | `results/traces_*.jsonl` |
 | Rule Scoring | 自动判卷：按工具调用和状态规则打分 | `eval_runner.py` |
+| State / Oracle | 重建最终环境状态并匹配 expected / forbidden state | `agent_eval/state.py` |
 | Human Review | 人工复核：判断结果和理由是否真的合理 | `human_review_*.csv` |
 | LLM-as-Judge | 裁判模型：补充开放式结果评判 | `llm_judge.py` |
 | Stats | 统计可信度：置信区间、显著性、一致性 | `stats.py` |
@@ -115,7 +118,7 @@ flowchart LR
 | Sandbox | 执行验证：代码和浏览器任务不只看口头声明 | `coding_sandbox.py`, `browser_sandbox.py` |
 | Scorecard | 汇报：把结果整理成模型卡式报告 | `scorecard.py` |
 | Release Gate | 门禁：判断结果能否作为正式结论发布 | `release_gate.py` |
-| Tests / CI | 保证框架本身没坏 | `test_eval_runner.py`, `.github/workflows/eval-smoke.yml` |
+| Tests / Smoke Gate | 保证框架本身没坏 | `test_eval_runner.py`, validate / dry-run commands |
 
 ## 两个核心评测模块
 
@@ -197,7 +200,7 @@ Planning suite 专门评估模型是否能在行动前写出合理计划：
 
 可以这样介绍：
 
-> 这是一个 portfolio-grade、可复现的 Agent 行为评测框架。它已经覆盖工具调用、自主性边界、planning、多轮、权限副作用、状态验证、LLM-as-Judge、统计分析、代码/浏览器轻量沙箱和 release gate。它适合用作求职作品集和方法论展示，但还不是生产级大规模评测平台。
+> 这是一个可复现的 Agent 行为评测框架。它已经覆盖工具调用、自主性边界、planning、多轮、权限副作用、状态验证、LLM-as-Judge、统计分析、代码/浏览器轻量沙箱和 release gate。它适合用作 Agent eval 方法论与工程原型展示，但还不是生产级大规模评测平台。
 
 还不能过度声称的部分：
 

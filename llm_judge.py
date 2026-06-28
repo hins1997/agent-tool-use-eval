@@ -857,7 +857,7 @@ def build_calibration_report(
         ]
     )
     if result_stats["kappa"] >= 0.60 and not severe_misses:
-        lines.append("- PASS for portfolio-scale use: result-score kappa is substantial+ and no severe gold-fail items were accepted.")
+        lines.append("- PASS for exploratory-scale use: result-score kappa is substantial+ and no severe gold-fail items were accepted.")
     elif result_stats["kappa"] >= 0.60:
         lines.append("- CONDITIONAL: result-score kappa is substantial+, but severe misses must be manually inspected before release-gate use.")
     else:

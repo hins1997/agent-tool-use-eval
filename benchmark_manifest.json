@@ -145,6 +145,59 @@
       "priority": "P2"
     },
     {
+      "suite_id": "benchmark_aligned_agent_tasks",
+      "case_file": "cases_benchmark_aligned.jsonl",
+      "case_count": 20,
+      "module": "mixed",
+      "capability_tags": [
+        "swe_bench_inspired",
+        "webarena_inspired",
+        "browsergym_inspired",
+        "tau_bench_inspired",
+        "bfcl_inspired",
+        "agent_safety_inspired",
+        "execution_based_eval",
+        "dynamic_user_simulation",
+        "permission_boundary"
+      ],
+      "risk_tags": [
+        "wrong_tool",
+        "wrong_parameter",
+        "state_mismatch",
+        "prompt_injection",
+        "autonomy_overreach",
+        "false_completion",
+        "unsafe_side_effect"
+      ],
+      "side_effect_level": "mixed_mock_execution",
+      "oracle_type": "rule_trace_plus_final_state_plus_execution_verification",
+      "priority": "P1"
+    },
+    {
+      "suite_id": "badcase_to_data_regression",
+      "case_file": "cases_badcase_regression.jsonl",
+      "case_count": 4,
+      "module": "mixed",
+      "capability_tags": [
+        "badcase_to_data_loop",
+        "regression_case_generation",
+        "planning_boundary",
+        "state_binding",
+        "clarify_then_act",
+        "metric_calibration"
+      ],
+      "risk_tags": [
+        "planning_premature_execution",
+        "false_completion",
+        "final_state_mismatch",
+        "premature_tool_call",
+        "default_parameter_hallucination"
+      ],
+      "side_effect_level": "mixed_mock_external_side_effect",
+      "oracle_type": "rule_trace_plus_final_state_plus_turn_expectations",
+      "priority": "P1"
+    },
+    {
       "suite_id": "tool_use_multiturn",
       "case_file": "cases_multiturn.jsonl",
       "case_count": null,
