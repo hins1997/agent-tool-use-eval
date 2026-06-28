@@ -36,7 +36,6 @@ Portfolio entry points:
 
 - `docs/portfolio_for_interview_zh.md`: Chinese interview-facing project narrative, with role-fit framing.
 - `docs/real_benchmark_20260628/README.md`: curated real-model run evidence across OpenAI, Claude, and DeepSeek.
-- `docs/resume/agent_eval_resume_zh.md`: Agent evaluation resume tailored to eval / data-strategy roles.
 
 - `cases_first15.jsonl`: first-pass tool-use reliability benchmark with 15 cases.
 - `cases_all40.jsonl`: expanded tool-use reliability benchmark with 44 cases.
